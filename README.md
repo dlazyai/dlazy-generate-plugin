@@ -51,7 +51,7 @@ npm run build   # → dist/index.js
 ## Publish
 
 ```bash
-clawhub package publish . --family code-plugin --name dlazy-generate --version 1.0.0
+clawhub package publish . --family code-plugin --name dlazy-generate-plugin --version 1.0.0
 ```
 
 ## Layout

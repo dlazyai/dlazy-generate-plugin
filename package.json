@@ -1,5 +1,5 @@
 {
-	"name": "dlazy-generate",
+	"name": "dlazy-generate-plugin",
 	"version": "1.0.0",
 	"description": "OpenClaw code-plugin that wraps the @dlazy/cli generation catalog (image, video, audio).",
 	"type": "module",
@@ -42,7 +42,7 @@
 			"pluginSdkVersion": "2026.5.7"
 		},
 		"install": {
-			"clawhubSpec": "clawhub:dlazy-generate",
+			"clawhubSpec": "clawhub:dlazy-generate-plugin",
 			"defaultChoice": "clawhub",
 			"minHostVersion": ">=2026.3.24-beta.2"
 		}
