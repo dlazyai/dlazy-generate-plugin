@@ -1,0 +1,31 @@
+{
+	"id": "dlazy-generate",
+	"name": "dLazy Generate",
+	"description": "All-in-one OpenClaw plugin that wraps the @dlazy/cli generation catalog. Exposes a single `dlazy_run` tool that can invoke any of the 69 dLazy models — image, video, audio, and composite pipelines (Veo 3.1, Seedance, Kling, Seedream, Suno, TTS, and more).",
+	"version": "1.0.0",
+	"contracts": {
+		"tools": ["dlazy_run"]
+	},
+	"activation": {
+		"onStartup": true
+	},
+	"configSchema": {
+		"type": "object",
+		"additionalProperties": false,
+		"properties": {
+			"command": {
+				"type": "string",
+				"description": "Path to the dlazy CLI binary. Defaults to 'dlazy' (must be on PATH)."
+			},
+			"apiKey": {
+				"type": "string",
+				"description": "Optional dLazy API key. If set, exported as DLAZY_API_KEY for each call. Otherwise the CLI uses its own config (~/.dlazy/config.json) from `dlazy login`."
+			},
+			"timeoutMs": {
+				"type": "number",
+				"minimum": 1000,
+				"description": "Default per-call timeout in milliseconds. Defaults to 300000 (5 min). Long video jobs can override per-call via the tool's timeoutSeconds parameter."
+			}
+		}
+	}
+}

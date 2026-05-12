@@ -1,0 +1,61 @@
+{
+	"name": "dlazy-generate",
+	"version": "1.0.0",
+	"description": "OpenClaw code-plugin that wraps the @dlazy/cli generation catalog (image, video, audio).",
+	"type": "module",
+	"main": "./dist/index.js",
+	"engines": {
+		"node": ">=22.19.0"
+	},
+	"scripts": {
+		"build": "tsc -p tsconfig.json",
+		"typecheck": "tsc --noEmit"
+	},
+	"files": [
+		"dist/**/*",
+		"src/**/*",
+		"openclaw.plugin.json",
+		"SKILL.md",
+		"README.md",
+		"tsconfig.json"
+	],
+	"keywords": [
+		"openclaw",
+		"openclaw-plugin",
+		"dlazy",
+		"image",
+		"video",
+		"audio",
+		"ai-generation"
+	],
+	"license": "MIT",
+	"openclaw": {
+		"extensions": [
+			"./dist/index.js"
+		],
+		"compat": {
+			"pluginApi": ">=2026.3.24-beta.2",
+			"minGatewayVersion": "2026.3.24-beta.2"
+		},
+		"build": {
+			"openclawVersion": "2026.5.7",
+			"pluginSdkVersion": "2026.5.7"
+		},
+		"install": {
+			"clawhubSpec": "clawhub:dlazy-generate",
+			"defaultChoice": "clawhub",
+			"minHostVersion": ">=2026.3.24-beta.2"
+		}
+	},
+	"peerDependencies": {
+		"openclaw": ">=2026.3.24-beta.2"
+	},
+	"devDependencies": {
+		"@types/node": "^25.6.2",
+		"openclaw": "^2026.5.7",
+		"typescript": "^6.0.3"
+	},
+	"dependencies": {
+		"typebox": "^1.1.38"
+	}
+}
