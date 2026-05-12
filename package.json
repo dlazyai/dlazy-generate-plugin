@@ -9,15 +9,14 @@
 	},
 	"scripts": {
 		"build": "tsc -p tsconfig.json",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "tsc --noEmit",
+		"prepublishOnly": "npm run build"
 	},
 	"files": [
-		"dist/**/*",
-		"src/**/*",
+		"dist/",
 		"openclaw.plugin.json",
 		"SKILL.md",
-		"README.md",
-		"tsconfig.json"
+		"README.md"
 	],
 	"keywords": [
 		"openclaw",

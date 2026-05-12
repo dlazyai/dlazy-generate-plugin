@@ -58,10 +58,10 @@ clawhub package publish . --family code-plugin --name dlazy-generate-plugin --ve
 
 ```
 plugin/
-├── src/index.ts           # plugin source
-├── dist/index.js          # built (committed for publish)
+├── src/index.ts           # plugin source (gitignored from publish)
+├── dist/index.js          # built by `npm run build` — not in git, ships in ClawHub artifact
 ├── openclaw.plugin.json   # manifest + configSchema
-├── package.json           # npm config
+├── package.json           # npm config (files field controls publish contents)
 ├── tsconfig.json          # TS build config
 ├── SKILL.md               # 69-model catalog (agent reference)
 └── README.md
