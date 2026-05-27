@@ -1,6 +1,6 @@
-import { Type } from "typebox";
 import { definePluginEntry } from "openclaw/plugin-sdk/plugin-entry";
 import { runCommandWithTimeout } from "openclaw/plugin-sdk/process-runtime";
+import { Type } from "typebox";
 
 const DEFAULT_TIMEOUT_MS = 300_000;
 const MAX_RESULT_CHARS = 60_000;
@@ -154,11 +154,15 @@ export default definePluginEntry({
 				const model = optionalString(record.model);
 				if (!model) throw new Error("Missing required parameter: model");
 				const argsObj =
-					record.args && typeof record.args === "object" && !Array.isArray(record.args)
+					record.args &&
+					typeof record.args === "object" &&
+					!Array.isArray(record.args)
 						? (record.args as Record<string, unknown>)
 						: {};
 				const timeoutSeconds =
-					typeof record.timeoutSeconds === "number" ? record.timeoutSeconds : undefined;
+					typeof record.timeoutSeconds === "number"
+						? record.timeoutSeconds
+						: undefined;
 
 				const cliArgs = [model, ...flagify(argsObj)];
 				const result = await runDlazy(config, cliArgs, timeoutSeconds);

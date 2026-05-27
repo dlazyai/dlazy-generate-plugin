@@ -86,15 +86,21 @@ async function main() {
 			);
 		}
 		if (cliAvailable) {
-			await check("execute spawns dlazy and captures stdout (--version)", async () => {
-				const result = await tool.execute("test-2", { model: "--version" });
-				assert(Array.isArray(result.content), "missing content array");
-				assert(result.content[0]?.type === "text", "expected text content");
-				const text = result.content[0].text;
-				assert(text && text.length > 0, "empty output");
-				// dlazy --version typically prints a semver-like string
-				assert(/\d+\.\d+/.test(text), `unexpected output: ${text.slice(0, 200)}`);
-			});
+			await check(
+				"execute spawns dlazy and captures stdout (--version)",
+				async () => {
+					const result = await tool.execute("test-2", { model: "--version" });
+					assert(Array.isArray(result.content), "missing content array");
+					assert(result.content[0]?.type === "text", "expected text content");
+					const text = result.content[0].text;
+					assert(text && text.length > 0, "empty output");
+					// dlazy --version typically prints a semver-like string
+					assert(
+						/\d+\.\d+/.test(text),
+						`unexpected output: ${text.slice(0, 200)}`,
+					);
+				},
+			);
 		}
 	}
 

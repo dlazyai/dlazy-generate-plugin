@@ -19,7 +19,9 @@ entry.register({
 });
 const tool = registered[0];
 
-console.log("Calling dlazy_run with model=grok-4.2, prompt='a red apple on white background'");
+console.log(
+	"Calling dlazy_run with model=grok-4.2, prompt='a red apple on white background'",
+);
 console.log("Timeout: 120s. This will charge a small number of credits.\n");
 
 const t0 = Date.now();
@@ -51,11 +53,17 @@ try {
 	}
 
 	if (envelope.ok === false) {
-		console.error(`FAIL — dlazy returned error: code=${envelope.code}, message=${envelope.message}`);
+		console.error(
+			`FAIL — dlazy returned error: code=${envelope.code}, message=${envelope.message}`,
+		);
 		if (envelope.code === "unauthorized") {
-			console.error("→ Run `dlazy login` first, or set apiKey in plugin config.");
+			console.error(
+				"→ Run `dlazy login` first, or set apiKey in plugin config.",
+			);
 		} else if (envelope.code === "insufficient_balance") {
-			console.error("→ Top up credits at https://dlazy.com/dashboard/organization/settings?tab=credits");
+			console.error(
+				"→ Top up credits at https://dlazy.com/dashboard/organization/settings?tab=credits",
+			);
 		}
 		process.exit(1);
 	}

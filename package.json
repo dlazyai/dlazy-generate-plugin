@@ -1,6 +1,6 @@
 {
 	"name": "dlazy-generate-plugin",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"description": "OpenClaw code-plugin that wraps the @dlazy/cli generation catalog (image, video, audio).",
 	"type": "module",
 	"main": "./dist/index.js",
@@ -34,7 +34,7 @@
 		],
 		"compat": {
 			"pluginApi": ">=2026.3.24-beta.2",
-			"minGatewayVersion": "2026.3.24-beta.2"
+			"minGatewayVersion": ">=2026.3.24-beta.2"
 		},
 		"build": {
 			"openclawVersion": "2026.5.7",
